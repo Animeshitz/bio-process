@@ -154,7 +154,7 @@ get_header('home');
             </div>
             <div class="row mb-125">
                 <div class="col-lg-12">
-                    <div class="search-form">
+                    <div class="search-form" id='search_sec'>
                         <form action="<?php echo get_home_url() ;?>" method="GET">
                             <input type="text" name="s" placeholder="Search for products" required>
                             <input type="hidden" name="post_type" value="products">

@@ -46,7 +46,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
 </head>
 <style>
 #header-sticky-new .main-menu ul>li .sub-menu {
-    margin-top: -23px;
+    margin-top: 0;
 }
 </style>
 
@@ -95,12 +95,12 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                           <li><a href="product-listing.html">Mixing</a></li>
                                        </ul> -->
                                         <ul class="sub-menu">
-                                            <li class="img-li">
+                                            <!-- <li class="img-li">
                                                 <div class="menu-img">
                                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-2.png"
                                                         alt="appoinment-img">
                                                 </div>
-                                            </li>
+                                            </li> -->
                                             <li class="content-li">
                                                 <ul class="cmn-nav-link service-scrol">
                                                     <?php
@@ -117,7 +117,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                        foreach ($categories as $category) {
                                           $category_url = get_term_link($category, $taxonomy);
                                           // Output the category name
-                                          echo '<li><a class="menu-heading" href="' . esc_url($category_url) . '"><h6>' . esc_html($category->name) . '</h6></a>';
+                                          echo '<li class="menu-item has-right-submenu" ><a class="menu-heading" href="' . esc_url($category_url) . '"><h6>' . esc_html($category->name) . '</h6></a> <img src="' . get_stylesheet_directory_uri() . '/assets/img/check_1.svg" class="img-fluid">';
 
                                           // Define query arguments to retrieve products within the current category
                                           $args = array(
@@ -138,7 +138,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
 
                                           // Check if there are any products in this category
                                           if ($products_query->have_posts()) {
-                                             echo '<ul>';
+                                             echo '<ul class="right-submenu">';
                                              while ($products_query->have_posts()) {
                                                 $products_query->the_post();
                                                 // Display product information here, e.g., title, content, thumbnail, etc.
@@ -159,42 +159,47 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                     <li class="has-dropdown"><a
                                             href="<?php echo get_home_url(); ?>/services">Services</a>
                                         <ul class="sub-menu">
-                                            <li class="img-li">
+                                            <!-- <li class="img-li">
                                                 <div class="menu-img">
                                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-3.png"
                                                         alt="appoinment-img">
                                                 </div>
-                                            </li>
+                                            </li> -->
                                             <li class="content-li">
                                                 <ul class="cmn-nav-link">
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/submit-a-sketch/"
                                                             class="menu-heading">
                                                             <h6>Submit a sketch</h6>
+                                                            
                                                         </a>
-                                                        <ul>
-                                                            <li><a href="<?php echo get_home_url(); ?>/submit-a-sketch/"
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li><a  href="<?php echo get_home_url(); ?>/submit-a-sketch/"
                                                                     class="_menu-link"> Submit a sketch</a></li>
                                                         </ul>
                                                     </li>
 
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/request-a-quote/"
                                                             class="menu-heading">
                                                             <h6>Request a quote</h6>
+                                                            
                                                         </a>
-                                                        <ul>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
                                                             <li><a href="<?php echo get_home_url(); ?>/request-a-quote/"
                                                                     class="_menu-link"> Request a quote</a></li>
                                                         </ul>
                                                     </li>
 
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/submit-project/"
                                                             class="menu-heading">
                                                             <h6>Submit a Project</h6>
                                                         </a>
-                                                        <ul>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
                                                             <li><a href="<?php echo get_home_url(); ?>/submit-project/"
                                                                     class="_menu-link"> Submit a Project</a></li>
                                                         </ul>
@@ -207,12 +212,13 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                     <li class="has-dropdown">
                                         <a href="<?php echo get_home_url(); ?>/resources">Resources</a>
                                         <ul class="sub-menu">
-                                            <li class="w-15">
+                                            <li class="menu-item has-right-submenu">
                                                 <a href="<?php echo get_home_url(); ?>/cert-look-up/"
                                                     class="menu-heading">
                                                     <h6>Cert Look Up</h6>
                                                 </a>
-                                                <ul>
+                                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                <ul class="right-submenu">
                                                     <li>
                                                         <a href="<?php echo get_home_url(); ?>/cert-look-up/"
                                                             class="_menu-link">
@@ -221,14 +227,17 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="hiden">
-                                                <a href="<?php echo get_home_url(); ?>/knowledge-center"
+                                            <li class="menu-item has-right-submenu">
+                                                <div>
+                                                    <a href="<?php echo get_home_url(); ?>/knowledge-center"
                                                     class="menu-heading">
                                                     <h6>Knowledge Center</h6>
                                                 </a>
                                                 <small>What's New</small>
-                                                <div class="_scrol">
-                                                    <ul>
+                                                </div>
+                                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                <div class="">
+                                                    <ul class='right-submenu'>
                                                         <?php
                                           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                           $posts_per_page = 3; // Number of posts to display per page
@@ -247,10 +256,10 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                         <li>
                                                             <a href="<?php echo get_permalink($id) ?>"
                                                                 class="_menu-blog-box">
-                                                                <div class="_menu-blog-box-img">
+                                                                <!-- <div class="_menu-blog-box-img">
                                                                     <img src="<?php echo $blogs_image; ?>"
                                                                         alt="appoinment-img">
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="_menu-blog-box-content">
                                                                     <h6><?php the_title(); ?></h6>
                                                                     <p><?php echo get_field('excerpt'); ?></p>
@@ -276,20 +285,21 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                       echo "active";
                                                    } ?> "><a href="<?php echo get_home_url(); ?>/about">Company</a>
                                         <ul class="sub-menu">
-                                            <li class="img-li">
+                                            <!-- <li class="img-li">
                                                 <div class="menu-img">
                                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-1.png"
                                                         alt="appoinment-img">
                                                 </div>
-                                            </li>
+                                            </li> -->
                                             <li class="content-li">
                                                 <ul class="cmn-nav-link">
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/about"
                                                             class="menu-heading">
                                                             <h6>about</h6>
                                                         </a>
-                                                        <ul>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
                                                             <li>
                                                                 <a href="<?php echo get_home_url(); ?>/about/#our_team"
                                                                     class="_menu-link"> Meet the Team</a>
@@ -305,12 +315,13 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                         </ul>
                                                     </li>
 
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/contact"
                                                             class="menu-heading">
                                                             <h6>Contact Us</h6>
                                                         </a>
-                                                        <ul>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
                                                             <li>
                                                                 <a href="<?php echo get_home_url(); ?>/contact"
                                                                     class="_menu-link">Contact Us</a>
@@ -318,12 +329,13 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                         </ul>
                                                     </li>
 
-                                                    <li>
+                                                    <li class="menu-item has-right-submenu">
                                                         <a href="<?php echo get_home_url(); ?>/careers"
                                                             class="menu-heading">
                                                             <h6>Openings</h6>
                                                         </a>
-                                                        <ul>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
                                                             <li>
                                                                 <a href="<?php echo get_home_url(); ?>/careers"
                                                                     class="_menu-link"> Positions</a>
@@ -345,8 +357,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                     </div>
                     <div class="col-xxl-4 col-lg-4 d-flex align-items-center justify-content-end g-20">
                         <div class="tp-bt-btn-banner">
-                            <a class="tp-bt-btn login-button" href="https://admin.bpssu.com/login" target="_blank"><i
-                                    class="bi bi-person"></i>Login</a>
+                            <a class="tp-bt-btn login-button" target="_blank" onclick="handleClickScroll('search_sec')"><i class="bi bi-search"></i></a>
                         </div>
                         <div class="tp-bt-btn-banner">
                             <a class="tp-bt-btn" href="tel:<?php echo $phone_number; ?> ">
@@ -379,9 +390,9 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                 <div class="col-8">
                     <div class="tp-mobile-bar d-flex align-items-center justify-content-end">
                         <div class="login_icon">
-                            <a href="https://admin.bpssu.com/login"
+                            <a onclick="handleClickScroll('search_sec')"
                                 target="_blank"><i
-                                class="bi bi-person"></i></a>
+                                class="bi bi-search"></i></a>
 
                         </div>
                         <div class="tp-bt-btn-banner d-none d-md-block d-xl-none mr-30">
@@ -721,3 +732,12 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
     <!-- sidebar-info-end -->
 
     <div class="body-overlay"></div>
+
+    <script>
+        function handleClickScroll(id) {
+		const element = document.getElementById(id);
+		if (element) {
+		element.scrollIntoView({ behavior: "smooth" });
+		}
+	}
+    </script>

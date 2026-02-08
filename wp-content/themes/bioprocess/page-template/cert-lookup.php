@@ -73,14 +73,14 @@ If you need certificates from longer than 90 days ago, feel free to <a href="/co
                 </form> -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="search-form">
+                        <div class="search-form" id='search_sec'>
                             <!-- <form id="search_form">
                                 <input type="text" name="s" id="search_input" placeholder="Search for Certificates" required>
                                 <button class="tp-btn search-btn" type="submit">Search Here <i class="fa-light fa-magnifying-glass ml-5"></i></button>
                             </form> -->
                             <form id="search_form_" method="GET" action="">
                                 <input type="text" name="cert" <?php if (isset($_REQUEST['cert'])) { ?> value="<?php echo $search; ?>" <?php  } ?> id="search_input_" placeholder="Search for Certificates" required>
-                                <button class="tp-btn search-btn" type="submit">Search Here <i class="fa-light fa-magnifying-glass ml-5"></i></button>
+                                <button class="tp-btn search-btn" type="submit">Search Here 5<i class="fa-light fa-magnifying-glass ml-5"></i></button>
                             </form>
                         </div>
                     </div>

@@ -1109,9 +1109,9 @@ input[type=color] {
   position: relative;
 }
 .main-menu ul > li.has-dropdown a::after {
-  content: "+";
+  /* content: "+";
   transform: translateY();
-  right: 0;
+  right: 0; */
 }
 .main-menu ul > li .sub-menu {
   position: absolute;
