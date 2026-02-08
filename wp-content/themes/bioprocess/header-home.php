@@ -227,15 +227,17 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item has-right-submenu">
-                                                <div>
+                                            <li class="menu-item has-right-submenu has-right-submenu-3">
+                                                <div class='has-right-submenu-3_'>
+                                                    <div>
                                                     <a href="<?php echo get_home_url(); ?>/knowledge-center"
                                                     class="menu-heading">
-                                                    <h6>Knowledge Center</h6>
-                                                </a>
-                                                <small>What's New</small>
+                                                        <h6>Knowledge Center</h6>
+                                                    </a>
+                                                    <small>What's New</small>
+                                                    </div>
+                                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
                                                 </div>
-                                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
                                                 <div class="">
                                                     <ul class='right-submenu'>
                                                         <?php
