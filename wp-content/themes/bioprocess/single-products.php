@@ -10,8 +10,20 @@
  */
 
 get_header(); ?>
+<?php
+$tab_count = 0;
 
-<!-- main-area -->
+if (get_the_content()) $tab_count++;
+if (get_field('benefites')) $tab_count++;
+if (have_rows('key_features')) $tab_count++;
+if (have_rows('table_row')) $tab_count++;
+?>
+<style>
+.pro-details-nav-btn.single-tab .nav-links {
+    cursor: default !important;
+    pointer-events: none;
+}
+</style> <!-- main-area -->
 <main>
 
     <!-- breadcrumb-area -->
@@ -78,13 +90,15 @@ get_header(); ?>
                                     <p><?php echo get_the_excerpt() ;?></p>
                                     <?php echo get_field('product_specification') ;?>
 
+                                    <?php 
+                                        if( have_rows('product_literature') ):
+                                    ?>
                                     <div class="p-literature">
                                         <h5>Downloadable Content</h5>
                                         <ul>
                                             <?php 
-                                       if( have_rows('product_literature') ):
-                                       while ( have_rows('product_literature') ) : the_row(); 
-                                    ?>
+                                                while ( have_rows('product_literature') ) : the_row(); 
+                                            ?>
                                             <li>
                                                 <a href="<?php echo the_sub_field('literature_file') ;?>"
                                                     target="_blank"><i class="pdf-icon"><img
@@ -95,11 +109,13 @@ get_header(); ?>
                                             </li>
 
                                             <?php
-                                       endwhile;
-                                       endif;
-                                    ?>
+                                            endwhile;
+                                            ?>
                                         </ul>
                                     </div>
+                                    <?php
+                                        endif;
+                                    ?>
                                 </div>
                                 <div class="product-button">
                                     <a href="<?php echo get_home_url() ;?>/contact/?sub=<?php the_title(); ?>"
@@ -114,9 +130,12 @@ get_header(); ?>
                         <div class="col-lg-12">
                             <div class="product-additional-tab">
                                 <div class="pro-details-nav mb-40">
-                                    <ul class="nav nav-tabs pro-details-nav-btn" id="myTabs" role="tablist">
+                                    <ul class="nav nav-tabs pro-details-nav-btn <?php echo ($tab_count == 1) ? 'single-tab' : ''; ?>"
+                                        id="myTabs" role="tablist">
+
+                                        <!-- <ul class="nav nav-tabs pro-details-nav-btn" id="myTabs" role="tablist"> -->
                                         <?php
-                                    if (get_the_content()) { ?>
+                                        if (get_the_content()) { ?>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-links active" id="home-tab-1" data-bs-toggle="tab"
                                                 data-bs-target="#home-1" type="button" role="tab" aria-controls="home-1"
@@ -125,7 +144,7 @@ get_header(); ?>
                                         <?php } ?>
 
                                         <?php 
-                                       if (get_field('benefites')) { ?>
+                                        if (get_field('benefites')) { ?>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-links" id="banefit-tab" data-bs-toggle="tab"
                                                 data-bs-target="#banefit-information" type="button" role="tab"
@@ -149,9 +168,6 @@ get_header(); ?>
                                                 Characteristics</button>
                                         </li>
                                         <?php } ?>
-                                        <!-- <li class="nav-item" role="presentation">
-                                       <button class="nav-links" id="size-chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button" role="tab" aria-controls="chart" aria-selected="false">Faq</button>
-                                    </li> -->
                                     </ul>
                                 </div>
                                 <div class="tab-content tp-content-tab" id="myTabContent-2">
@@ -187,7 +203,8 @@ get_header(); ?>
                                                 while ( have_rows('key_features') ) : the_row(); 
                                              ?>
                                                     <tr>
-                                                        <td class="add-info"><?php echo the_sub_field('title') ;?></td>
+                                                        <td class="add-info"><?php echo the_sub_field('title') ;?>
+                                                        </td>
                                                         <td class="add-info-list">
                                                             <?php echo the_sub_field('details') ;?></td>
                                                     </tr>

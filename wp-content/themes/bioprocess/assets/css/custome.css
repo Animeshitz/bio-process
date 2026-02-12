@@ -505,6 +505,40 @@ span.tpshopitem__title.mb-5 a {
     display: inline-flex;
 }
 
+/* new */
+/* STEP 1: prevent equal height stretch */
+.services-area .row,
+.shop-area .row {
+    align-items: flex-start !important;
+}
+
+/* STEP 2: card layout */
+.tpshopitem {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+/* STEP 3: content structure */
+.tpshopitem__content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* STEP 4: description spacing */
+.tpshopitem .card-desc {
+    margin: 12px 0 18px;
+}
+
+/* STEP 5: View Details always in same position */
+.tpshopitem .r-more {
+    display: block;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* End */
+
 .productthumb {
     width: 100%;
     height: 550px;
@@ -665,9 +699,31 @@ span.b-time {
     font-weight: 600;
 }
 
-.services-item {
-    min-height: 400px;
+.services-area .row {
+    align-items: flex-start;
 }
+
+.services-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 480px;
+}
+
+.services-item__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* .card-desc {
+    flex-grow: 1;
+} */
+
+.services-item__btn {
+    margin-top: auto;
+}
+
 
 a.m-bannerscroll-icon {
     display: none;
@@ -1050,43 +1106,56 @@ ul.data-content li:last-child {
 .main-menu ul>li {
     position: relative;
 }
+
 /*  */
 .has-right-submenu {
-  position: relative;
-  display: flex !important;
-  align-items: center;
-  margin-bottom: 8px;
-justify-content: space-between;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
 }
-.menu-item.has-right-submenu .img-fluid{
+
+.menu-item.has-right-submenu .img-fluid {
     margin-right: 5px;
     width: 18px;
 }
-.has-right-submenu-3{ display: block !important; padding-left: 5px; padding-top: 8px;}
-.has-right-submenu-3_{    display: flex; align-items: flex-start; justify-content: space-between;}
+
+.has-right-submenu-3 {
+    display: block !important;
+    padding-left: 5px;
+    padding-top: 8px;
+}
+
+.has-right-submenu-3_ {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 /* Hide submenu */
 .right-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 260px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 12px 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  display: none;
-  z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 260px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    display: none;
+    z-index: 10;
 }
 
 /* Show on hover */
 .has-right-submenu:hover .right-submenu {
-  display: block;
+    display: block;
 }
 
 /* Heading style */
 .menu-heading h6 {
-  font-weight: 700;
-  cursor: pointer;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 /* Hover underline */
@@ -1101,21 +1170,22 @@ justify-content: space-between;
 } */
 
 .has-right-submenu:hover .menu-heading h6::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Submenu links */
 .right-submenu li a {
-  display: block;
-  padding: 6px 0;
-  font-size: 14px;
-  color: #6b6b9c;
+    display: block;
+    padding: 6px 0;
+    font-size: 14px;
+    color: #6b6b9c;
 }
 
 .right-submenu li a:hover {
-  color: #000;
+    color: #000;
 }
-.has-dropdown a::after{
+
+.has-dropdown a::after {
     content: '';
     position: absolute;
     bottom: 12px;
@@ -1127,9 +1197,11 @@ justify-content: space-between;
     transform-origin: bottom left;
     transition: transform 0.4s;
 }
-.has-dropdown a:hover::after{
+
+.has-dropdown a:hover::after {
     transform: scaleX(1);
 }
+
 /*  */
 .main-menu ul>li .sub-menu li {
     /* width: auto; */
@@ -1171,7 +1243,11 @@ ul>li .sub-menu li small {
     text-transform: uppercase;
     padding: 5px 5px;
 }
-.read-more-link{padding: 5px 5px;}
+
+.read-more-link {
+    padding: 5px 5px;
+}
+
 .main-menu ul>li .sub-menu li.w-15 {
     width: 30%;
 }
@@ -2123,6 +2199,10 @@ i.pdf img {
     .banner__content {
         padding-top: 70px;
         padding-bottom: 50px;
+    }
+
+    .services-item {
+        min-height: auto;
     }
 
     .banner__box-item .col-xl-4.col-lg-4.col-md-6 {

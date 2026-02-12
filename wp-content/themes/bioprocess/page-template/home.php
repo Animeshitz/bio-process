@@ -4,6 +4,31 @@
  */
 get_header('home');
 ?>
+<style>
+.appoinment-area p {
+    margin-top: -18px;
+    padding-bottom: 10px;
+}
+
+.tp-blog__thumb {
+    aspect-ratio: 4 / 3;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tp-blog__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+h5.tp-blog__title {
+    min-height: 84px;
+}
+</style>
 <!-- main-area -->
 <main>
 
@@ -85,7 +110,7 @@ get_header('home');
             <div class="row align-items-center">
                 <div class="col-lg-8 col-md-8 col-12">
                     <div class="tp-section">
-                        <span class="tp-section__sub-title left-line mb-20">Bioprocess Supplies</span>
+                        <!-- <span class="tp-section__sub-title left-line mb-20">Bioprocess Supplies</span> -->
                         <h3 class="tp-section__title mb-50">Products Category</h3>
                     </div>
                 </div>
@@ -181,6 +206,8 @@ get_header('home');
                 <div class="col-xxl-6 col-xl-7 col-lg-12 col-md-12 p-0">
                     <div class="visitor-info">
                         <h4 class="appoinment-title mb-25"><i class="fa-light fa-file-signature"></i>Contact Us</h4>
+                        <p>Have a question? Give us a call or fill in
+                            the form below and one of our experts will reach out to you shortly!</span>
                         <div class="visitor-form">
                             <?php echo do_shortcode('[contact-form-7 id="278" title="Home Contact"]') ;?>
                         </div>
@@ -225,8 +252,8 @@ get_header('home');
             <div class="row align-items-center">
                 <div class="col-md-8 col-12">
                     <div class="tp-section">
-                        <span class="tp-section__sub-title left-line mb-25">What’s New</span>
-                        <h3 class="tp-section__title mb-65">Knowledge Center</h3>
+                        <span class="tp-section__sub-title left-line mb-25">What's New</span>
+                        <h3 class="tp-section__title mb-65">Blogs</h3>
                     </div>
                 </div>
                 <div class="col-md-4 col-12">

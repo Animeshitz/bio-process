@@ -1242,3 +1242,79 @@ function render_sketch_submissions_page() {
     $submissions_table->display();
     echo '</div>';
 }
+
+add_action('template_redirect', 'smart_product_category_redirect', 5);
+function smart_product_category_redirect() {
+    if (!is_tax('products_categories')) return;
+    
+    $term = get_queried_object();
+    $term_id = $term->term_id;   
+    
+    // Method 1: WP_Query
+    $total_query = new WP_Query(array(
+        'post_type' => 'products',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'products_categories',
+                'field' => 'term_id',
+                'terms' => $term_id,
+            ),
+        ),
+    ));
+    $wp_query_count = $total_query->found_posts;
+    
+    // Method 2: get_posts
+    $get_posts = get_posts(array(
+        'post_type' => 'products',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'fields' => 'ids',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'products_categories',
+                'field' => 'term_id',
+                'terms' => $term_id,
+            ),
+        ),
+    ));
+    $get_posts_count = count($get_posts);
+    
+    // Method 3: Direct DB Query (MOST ACCURATE)
+    global $wpdb;
+    $db_count = $wpdb->get_var($wpdb->prepare("
+        SELECT COUNT(*) 
+        FROM {$wpdb->posts} p 
+        INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id
+        INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+        WHERE p.post_type = 'products' 
+        AND p.post_status = 'publish' 
+        AND tt.term_id = %d
+    ", $term_id));
+    
+    // STRICT CHECK - DB count only
+    if ($db_count != 1) {
+        return; // NO REDIRECT
+    }
+    
+    // Name match check
+    $match_query = new WP_Query(array(
+        'post_type' => 'products',
+        'posts_per_page' => 1,
+        'post_status' => 'publish',
+        's' => $term->name,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'products_categories',
+                'field' => 'term_id',
+                'terms' => $term_id,
+            ),
+        ),
+    ));
+    
+    if ($match_query->found_posts == 1) {
+       	wp_redirect(get_permalink($match_query->posts[0]->ID), 301);
+        exit;
+    }
+}
