@@ -4,31 +4,7 @@
  */
 get_header('home');
 ?>
-<style>
-.appoinment-area p {
-    margin-top: -18px;
-    padding-bottom: 10px;
-}
 
-.tp-blog__thumb {
-    aspect-ratio: 4 / 3;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.tp-blog__thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-h5.tp-blog__title {
-    min-height: 84px;
-}
-</style>
 <!-- main-area -->
 <main>
 
@@ -269,7 +245,7 @@ h5.tp-blog__title {
                         $args = array(
                             'post_type' => 'post',
                             'category_name' => '',
-                            'posts_per_page' => 5,
+                            'posts_per_page' => -1,
                             'paged' => $paged 
                         );
                         $query = new WP_Query($args);
@@ -293,34 +269,34 @@ h5.tp-blog__title {
                                 <span class="tp-blog__category mb-30">
 
                                     <?php
-                                                    $category = get_the_category();
-                                                    $first_category = $category[0];
-                                                    echo sprintf( '<a href="%s">%s</a>', get_category_link( $first_category ), $first_category->name );
-                                                ?>
+                                        $category = get_the_category();
+                                        $first_category = $category[0];
+                                        echo sprintf( '<a href="%s">%s</a>', get_category_link( $first_category ), $first_category->name );
+                                    ?>
 
                                 </span>
                                 <h5 class="tp-blog__title mb-20">
                                     <a href="<?php echo get_permalink( $id )?>">
                                         <?php
-                                                        $title = get_the_title();
-                                                        $limit = 50;
-                                                        if (strlen($title) > $limit) {
-                                                            $title = substr($title, 0, $limit) . '...';
-                                                        }
-                                                        echo $title;
-                                                    ?>
+                                            $title = get_the_title();
+                                            // $limit = 50;
+                                            // if (strlen($title) > $limit) {
+                                            //     $title = substr($title, 0, $limit) . '...';
+                                            // }
+                                            echo $title;
+                                        ?>
 
                                     </a>
                                 </h5>
                                 <p>
                                     <?php
-                                                    $excerpt = get_field('excerpt');
-                                                    $limit = 90;
-                                                    if (strlen($excerpt) > $limit) {
-                                                        $excerpt = substr($excerpt, 0, $limit) . '...';
-                                                    }
-                                                    echo $excerpt;
-                                                ?>
+                                        $excerpt = get_field('excerpt');
+                                        $limit = 90;
+                                        if (strlen($excerpt) > $limit) {
+                                            $excerpt = substr($excerpt, 0, $limit) . '...';
+                                        }
+                                        echo $excerpt;
+                                    ?>
                                 </p>
                                 <div class="tp-blog__btn">
                                     <a href="<?php echo get_permalink( $id )?>">Read moRe</a>
@@ -330,9 +306,9 @@ h5.tp-blog__title {
                     </div>
 
                     <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        endif;
+                    endwhile;
+                        wp_reset_postdata();
+                    endif;
                     ?>
                 </div>
             </div>

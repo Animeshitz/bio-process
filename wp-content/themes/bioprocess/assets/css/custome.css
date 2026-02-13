@@ -506,35 +506,81 @@ span.tpshopitem__title.mb-5 a {
 }
 
 /* new */
-/* STEP 1: prevent equal height stretch */
-.services-area .row,
-.shop-area .row {
-    align-items: flex-start !important;
+/* Equal height columns */
+.taxo .row {
+    align-items: stretch;
+    row-gap: 40px;
 }
 
-/* STEP 2: card layout */
-.tpshopitem {
+.taxo .col-xl-4,
+.taxo .col-lg-4,
+.taxo .col-md-4 {
+    display: flex;
+}
+
+/* Card structure */
+.taxo .tpshopitem {
     display: flex;
     flex-direction: column;
-    height: auto;
+    width: 100%;
+    height: 100%;
 }
 
-/* STEP 3: content structure */
-.tpshopitem__content {
+.taxo .tpshopitem__content {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
-/* STEP 4: description spacing */
-.tpshopitem .card-desc {
-    margin: 12px 0 18px;
-}
-
-/* STEP 5: View Details always in same position */
-.tpshopitem .r-more {
-    display: block;
+/* View details bottom aligned */
+.taxo .tpshopitem .r-more {
     margin-top: auto;
-    padding-top: 10px;
+}
+
+/* Equal image ratio */
+.taxo .tpshopitem__thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.taxo .tpshopitem__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Image ratio */
+.tpshopitem__thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.tpshopitem__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.tpshopitem__thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px !important;
+}
+
+.tpshopitem__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* End */
@@ -634,9 +680,9 @@ span.tpshopitem__title.mb-5 a {
     margin-top: 50px;
 }
 
-section.services-area {
+/* section.services-area {
     padding-bottom: 0px;
-}
+} */
 
 .tp-mobile-header-area.header-sticky-new .tp-bt-btn,
 .tp-mobile-header-area .tp-bt-btn {
@@ -1589,7 +1635,7 @@ i.pdf img {
 
 
 .tp-blog__content {
-    min-height: 360px !important;
+    min-height: 290px !important;
 }
 
 .visit-btn .tp-btn {
@@ -1624,6 +1670,91 @@ i.pdf img {
     margin: 0px !important;
 }
 
+/* Start Service Page */
+.services-area .row {
+    align-items: stretch !important;
+}
+
+.services-area .col-lg-4 {
+    display: flex !important;
+}
+
+.services-thumb-box {
+    display: flex !important;
+    flex-direction: column !important;
+    /* min-height: 598px !important; */
+    height: 100% !important;
+}
+
+.services-thumb-box__text-area {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.services-thumb-box__content {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    flex: 1;
+}
+
+.services-thumb-box__content .tp-btn-link {
+    margin-top: auto !important;
+}
+
+/* End Service Page */
+.checkout-area {
+    background: #f2f5fa;
+    padding: 0 0 80px 0;
+}
+
+.submit-sketch-content {
+    max-width: 820px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.submit-sketch-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin-bottom: 22px;
+}
+
+.submit-sketch-content a {
+    color: #3c90e4;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* End Submit Sketch */
+/* Start Blogs Section */
+.appoinment-area p {
+    margin-top: -18px;
+    padding-bottom: 10px;
+}
+
+.tp-blog__thumb {
+    aspect-ratio: 4 / 3;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tp-blog__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+h5.tp-blog__title {
+    min-height: 84px;
+}
+
+/* End  Blogs Section */
 /* ====================================================================================================================== */
 /* ===================================================== responsive style start here ==================================== */
 /* ====================================================================================================================== */

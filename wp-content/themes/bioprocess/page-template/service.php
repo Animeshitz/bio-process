@@ -7,94 +7,108 @@
  */
 
 get_header(); ?>
-      <!-- main-area -->
-      <main>
+<!-- main-area -->
+<main>
 
-         <!-- breadcrumb-area -->
-         <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay" data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/service-banner.jpg">
-            <div class="container">
-               <div class="row align-items-center">
-                  <div class="col-lg-6 col-md-7 col-12">
-                     <div class="tp-breadcrumb">
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb__area pt-100 pb-120 breadcrumb__overlay"
+        data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/service-banner.jpg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-7 col-12">
+                    <div class="tp-breadcrumb">
                         <h2 class="tp-breadcrumb__title">Services</h2>
-                     </div>
-                  </div>
-                  <div class="col-lg-6 col-md-5 col-12">
-                     <div class="tp-breadcrumb__link d-flex align-items-center">
-                       
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <!-- breadcrumb-area-end -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5 col-12">
+                    <div class="tp-breadcrumb__link d-flex align-items-center">
 
-         <!-- services-area -->
-         <section class="services-area pt-120 pb-105 grey-bg" data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/shape-bg-01.png">
-            <div class="container">
-               <div class="row align-items-end  mb-45">
-                  <div class="col-lg-5 col-md-12 col-12">
-                     <div class="tp-section">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- services-area -->
+    <section class="service services-area pt-120 pb-120 grey-bg"
+        data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/shape/shape-bg-01.png">
+        <div class="container">
+            <div class="row align-items-end  mb-45">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="tp-section">
                         <span class="tp-section__sub-title left-line mb-20">our Services</span>
                         <h3 class="tp-section__title mb-30">Service Area</h3>
-                     </div>
-                  </div>
-                  <div class="col-lg-7 col-md-12 col-12">
-                     <div class="services-link text-md-start text-lg-end mb-30">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12 col-12">
+                    <div class="services-link text-md-start text-lg-end mb-30">
                         <!-- <span>We'll ensure you always get the best results:<a href="<?php echo get_home_url(); ?>/contact">Contact us<i class="fa-solid fa-arrow-right"></i></a></span> -->
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-lg-4 col-md-4 col-12">
-                     <div class="services-thumb-box mb-30 wow fadeInLeft" data-wow-delay=".3s">
-                        <div class="services-thumb-box__thumb fix fix">
-                           <img src="<?php echo get_field('service_1_image'); ?>" alt="services-thumb">
-                        </div>
-                        <div class="services-thumb-box__text-area d-flex align-items-center">
-                           <div class="services-thumb-box__content">
-                              <h5 class="services-thumb-box__title"><a href="<?php echo get_field('service_1_url'); ?>"><?php echo get_field('service_1_title'); ?></a></h5>
-                              <p><?php echo get_field('service_1_excerpt'); ?></p>
-                              <a class="tp-btn-link" href="<?php echo get_field('service_1_url'); ?>">Read More</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-12">
-                     <div class="services-thumb-box pink-round mb-30 wow fadeInUp" data-wow-delay=".4s">
-                        <div class="services-thumb-box__thumb fix">
-                           <img src="<?php echo get_field('service_2_image'); ?>" alt="services-thumb">
-                        </div>
-                        <div class="services-thumb-box__text-area d-flex align-items-center">
-                           <div class="services-thumb-box__content">
-                              <h5 class="services-thumb-box__title"><a href="<?php echo get_field('service_2_url'); ?>"><?php echo get_field('service_2_title'); ?></a></h5>
-                              <p><?php echo get_field('service_2_excerpt'); ?> </p>
-                              <a class="tp-btn-link" href="<?php echo get_field('service_2_url'); ?>">Read More</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-12">
-                     <div class="services-thumb-box sky-round mb-30 wow fadeInRight" data-wow-delay=".3s">
-                        <div class="services-thumb-box__thumb fix">
-                           <img src="<?php echo get_field('service_3_image'); ?>" alt="services-thumb">
-                        </div>
-                        <div class="services-thumb-box__text-area d-flex align-items-center">
-                           <div class="services-thumb-box__content">
-                              <h5 class="services-thumb-box__title"><a href="<?php echo get_field('service_3_url'); ?>"><?php echo get_field('service_3_title'); ?></a></h5>
-                              <p><?php echo get_field('service_3_excerpt'); ?></p>
-                              <a class="tp-btn-link" href="<?php echo get_field('service_3_url'); ?>">Read More</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </section>
-         <!-- services-area-end -->
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="services-thumb-box mb-30 wow fadeInLeft" data-wow-delay=".3s">
+                        <div class="services-thumb-box__thumb fix fix">
+                            <a href="<?php echo get_field('service_1_url'); ?>">
+                                <img src="<?php echo get_field('service_1_image'); ?>" alt="services-thumb">
+                            </a>
+                        </div>
+                        <div class="services-thumb-box__text-area d-flex">
+                            <div class="services-thumb-box__content">
+                                <h5 class="services-thumb-box__title"><a
+                                        href="<?php echo get_field('service_1_url'); ?>"><?php echo get_field('service_1_title'); ?></a>
+                                </h5>
+                                <p><?php echo get_field('service_1_excerpt'); ?></p>
+                                <a class="tp-btn-link" href="<?php echo get_field('service_1_url'); ?>">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="services-thumb-box pink-round mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="services-thumb-box__thumb fix">
+                            <a href="<?php echo get_field('service_2_url'); ?>">
+                                <img src="<?php echo get_field('service_2_image'); ?>" alt="services-thumb">
+                            </a>
+                        </div>
+                        <div class="services-thumb-box__text-area d-flex">
+                            <div class="services-thumb-box__content">
+                                <h5 class="services-thumb-box__title"><a
+                                        href="<?php echo get_field('service_2_url'); ?>"><?php echo get_field('service_2_title'); ?></a>
+                                </h5>
+                                <p><?php echo get_field('service_2_excerpt'); ?> </p>
+                                <a class="tp-btn-link" href="<?php echo get_field('service_2_url'); ?>">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="services-thumb-box sky-round mb-30 wow fadeInRight" data-wow-delay=".3s">
+                        <div class="services-thumb-box__thumb fix">
+                            <a href="<?php echo get_field('service_3_url'); ?>">
+                                <img src="<?php echo get_field('service_3_image'); ?>" alt="services-thumb">
+                            </a>
+                        </div>
+                        <div class="services-thumb-box__text-area d-flex">
+                            <div class="services-thumb-box__content">
+                                <h5 class="services-thumb-box__title"><a
+                                        href="<?php echo get_field('service_3_url'); ?>"><?php echo get_field('service_3_title'); ?></a>
+                                </h5>
+                                <p><?php echo get_field('service_3_excerpt'); ?></p>
+                                <a class="tp-btn-link" href="<?php echo get_field('service_3_url'); ?>">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services-area-end -->
 
-         <!-- process-area -->
-         <!-- <section class="process-area process-bg" data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/process-bg-01.jpg">
+    <!-- process-area -->
+    <!-- <section class="process-area process-bg" data-background="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/process-bg-01.jpg">
             <div class="container-fluid p-0 process-active">
                <div class="swiper-wrapper">
                   <div class="swiper-slide">
@@ -152,10 +166,10 @@ get_header(); ?>
                </div>
             </div>
          </section> -->
-         <!-- process-area-end -->
+    <!-- process-area-end -->
 
-         <!-- support-area -->
-         <!-- <section class="support-area grey-bg pt-125 pb-130">
+    <!-- support-area -->
+    <!-- <section class="support-area grey-bg pt-125 pb-130">
             <div class="container">
                <div class="row text-center">
                   <div class="col-lg-12 col-md-12 col-12">
@@ -182,9 +196,9 @@ get_header(); ?>
                </div>
             </div>
          </section> -->
-         <!-- support-area-end -->
+    <!-- support-area-end -->
 
-      </main>
-      <!-- main-area-end -->
+</main>
+<!-- main-area-end -->
 
-      <?php get_footer(); ?>
+<?php get_footer(); ?>

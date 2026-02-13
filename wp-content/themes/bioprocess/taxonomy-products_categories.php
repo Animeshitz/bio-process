@@ -74,7 +74,7 @@ get_header();
         </div>
 
         <!-- shope-area -->
-        <div class="shop-area pb-50">
+        <div class="taxo shop-area pb-50">
             <div class="container">
                 <div class="row">
                     <?php 
