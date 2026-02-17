@@ -1336,7 +1336,7 @@ ul>li .sub-menu li small {
     font-weight: 700;
     letter-spacing: 0.28px;
     text-transform: uppercase;
-    padding: 5px 5px;
+    padding: 5px 0;
 }
 
 .read-more-link {

@@ -236,12 +236,13 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                     class="menu-heading">
                                                         <h6>Knowledge Center</h6>
                                                     </a>
-                                                    <small>What's New</small>
+                                                    <!-- <small>What's New</small> -->
                                                     </div>
                                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
                                                 </div>
                                                 <div class="">
                                                     <ul class='right-submenu'>
+                                                        <small>What's New</small>
                                                         <?php
                                           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                           $posts_per_page = 3; // Number of posts to display per page
@@ -256,7 +257,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                              while ($query->have_posts()) :
                                                 $query->the_post();
                                                 $blogs_image = wp_get_attachment_url(get_post_thumbnail_id($post->id));
-                                          ?>
+                                          ?>            
                                                         <li>
                                                             <a href="<?php echo get_permalink($id) ?>"
                                                                 class="_menu-blog-box">
