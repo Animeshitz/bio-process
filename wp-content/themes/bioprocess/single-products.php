@@ -125,137 +125,135 @@ if (have_rows('table_row')) $tab_count++;
                         </div>
                     </div>
                 </div>
-                <div class="productdetails pt-35 pb-75">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="product-additional-tab">
-                                <div class="pro-details-nav mb-40">
-                                    <ul class="nav nav-tabs pro-details-nav-btn <?php echo ($tab_count == 1) ? 'single-tab' : ''; ?>"
-                                        id="myTabs" role="tablist">
+                <div class="productdetails pt-35 pb-75" id="product-tabs">
+                    <div class="container">
+                        <ul class="nav tp-nav-tavs mb-50 product-tabs-left" id="productTab" role="tablist">
 
-                                        <!-- <ul class="nav nav-tabs pro-details-nav-btn" id="myTabs" role="tablist"> -->
-                                        <?php
-                                        if (get_the_content()) { ?>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-links active" id="home-tab-1" data-bs-toggle="tab"
-                                                data-bs-target="#home-1" type="button" role="tab" aria-controls="home-1"
-                                                aria-selected="true">Product Details</button>
-                                        </li>
-                                        <?php } ?>
+                            <?php if (get_the_content()) { ?>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#product-details"
+                                    type="button" role="tab">
+                                    Product Details
+                                </button>
+                            </li>
+                            <?php } ?>
 
-                                        <?php 
-                                        if (get_field('benefites')) { ?>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-links" id="banefit-tab" data-bs-toggle="tab"
-                                                data-bs-target="#banefit-information" type="button" role="tab"
-                                                aria-controls="banefit-information"
-                                                aria-selected="false">Benefits</button>
-                                        </li>
-                                        <?php } ?>
-                                        <?php if( have_rows('key_features') ) {?>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-links" id="information-tab" data-bs-toggle="tab"
-                                                data-bs-target="#additional-information" type="button" role="tab"
-                                                aria-controls="additional-information" aria-selected="false">Key
-                                                Features</button>
-                                        </li>
-                                        <?php } ?>
-                                        <?php if (have_rows('table_row')) {?>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-links" id="data-table-tab" data-bs-toggle="tab"
-                                                data-bs-target="#data-information" type="button" role="tab"
-                                                aria-controls="data-information" aria-selected="false">Products
-                                                Characteristics</button>
-                                        </li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                                <div class="tab-content tp-content-tab" id="myTabContent-2">
-                                    <div class="tab-para tab-pane fade show active" id="home-1" role="tabpanel"
-                                        aria-labelledby="home-tab-1">
-                                        <p class="mb-30">
-                                            <?php
-                                          if (have_posts()) {
-                                              while (have_posts()) {
-                                                  the_post();
-                                                  the_content();
-                                              }
-                                          } else {
-                                              echo '<p>Product not available</p>';
-                                          }
-                                       ?>
-                                        </p>
-                                    </div>
-                                    <div class="tab-pane fade" id="banefit-information" role="tabpanel"
-                                        aria-labelledby="information-tab">
-                                        <div class="product__details-info table-responsive">
-                                            <?php echo get_field('benefites') ;?>
+                            <?php if (get_field('benefites')) { ?>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-benefits"
+                                    type="button" role="tab">
+                                    Benefits
+                                </button>
+                            </li>
+                            <?php } ?>
 
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="additional-information" role="tabpanel"
-                                        aria-labelledby="information-tab">
-                                        <div class="product__details-info table-responsive">
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <?php 
-                                                if( have_rows('key_features') ):
-                                                while ( have_rows('key_features') ) : the_row(); 
-                                             ?>
-                                                    <tr>
-                                                        <td class="add-info"><?php echo the_sub_field('title') ;?>
-                                                        </td>
-                                                        <td class="add-info-list">
-                                                            <?php echo the_sub_field('details') ;?></td>
-                                                    </tr>
+                            <?php if (have_rows('key_features')) { ?>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-features"
+                                    type="button" role="tab">
+                                    Key Features
+                                </button>
+                            </li>
+                            <?php } ?>
 
-                                                    <?php
-                                                endwhile;
-                                                endif;
-                                             ?>
+                            <?php if (have_rows('table_row')) { ?>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-characteristics"
+                                    type="button" role="tab">
+                                    Product Characteristics
+                                </button>
+                            </li>
+                            <?php } ?>
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="data-information" role="tabpanel"
-                                        aria-labelledby="information-tab">
-                                        <ul class="data-table">
-                                            <li class="table-header">
-                                                <ul class="header-content">
-                                                    <?php if (have_rows('heading')) :
-                                                   while (have_rows('heading')) : the_row(); ?>
-                                                    <?php if(get_sub_field('table_heading_title')){ ?>
-                                                    <li><?php the_sub_field('table_heading_title'); ?></li>
-                                                    <?php }
-                                                   endwhile;
-                                                endif; ?>
-                                                </ul>
-                                            </li>
-                                            <li class="table-content">
-                                                <?php if (have_rows('table_row')) :
-                                             $headings = get_field('heading'); 
-                                             $headingCount = count($headings);
+                        </ul>
 
-                                             while (have_rows('table_row')) : the_row(); ?>
-                                                <ul class="data-content">
-                                                    <?php for ($i = 1; $i <= $headingCount; $i++) : ?>
-                                                    <?php if(get_sub_field('point_'.$i)) {?>
-                                                    <li><?php the_sub_field('point_' . $i); ?></li>
-                                                    <?php }
-                                                   endfor; ?>
-                                                </ul>
-                                                <?php endwhile;
-                                             endif; ?>
-                                            </li>
-                                        </ul>
+                        <div class="tab-content">
 
-                                    </div>
-                                </div>
+                            <!-- Product Details -->
+                            <div class="tab-pane fade show active" id="product-details" role="tabpanel">
+                                <?php
+                if (have_posts()) {
+                    while (have_posts()) {
+                        the_post();
+                        the_content();
+                    }
+                } else {
+                    echo '<p>Product not available</p>';
+                }
+                ?>
                             </div>
+
+                            <!-- Benefits -->
+                            <?php if (get_field('benefites')) { ?>
+                            <div class="tab-pane fade" id="product-benefits" role="tabpanel">
+                                <?php echo get_field('benefites'); ?>
+                            </div>
+                            <?php } ?>
+
+                            <!-- Key Features -->
+                            <?php if (have_rows('key_features')) { ?>
+                            <div class="tab-pane fade" id="product-features" role="tabpanel">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <?php while (have_rows('key_features')) : the_row(); ?>
+                                        <tr>
+                                            <td><?php the_sub_field('title'); ?></td>
+                                            <td><?php the_sub_field('details'); ?></td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
+
+                            <!-- Product Characteristics -->
+                            <?php if (have_rows('table_row')) { ?>
+                            <div class="tab-pane fade" id="product-characteristics" role="tabpanel">
+                                <ul class="data-table">
+
+                                    <!-- Table Header -->
+                                    <li class="table-header">
+                                        <ul class="header-content">
+                                            <?php 
+                            if (have_rows('heading')) :
+                                while (have_rows('heading')) : the_row();
+                                    if (get_sub_field('table_heading_title')) { ?>
+                                            <li><?php the_sub_field('table_heading_title'); ?></li>
+                                            <?php }
+                                endwhile;
+                            endif;
+                            ?>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Table Rows -->
+                                    <li class="table-content">
+                                        <?php
+                        if (have_rows('table_row')) :
+                            $headings = get_field('heading');
+                            $headingCount = count($headings);
+
+                            while (have_rows('table_row')) : the_row(); ?>
+                                        <ul class="data-content">
+                                            <?php for ($i = 1; $i <= $headingCount; $i++) : ?>
+                                            <?php if (get_sub_field('point_' . $i)) { ?>
+                                            <li><?php the_sub_field('point_' . $i); ?></li>
+                                            <?php } ?>
+                                            <?php endfor; ?>
+                                        </ul>
+                                        <?php endwhile;
+                        endif;
+                        ?>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <?php } ?>
+
                         </div>
                     </div>
                 </div>
+
 
             </div>
             </div>
