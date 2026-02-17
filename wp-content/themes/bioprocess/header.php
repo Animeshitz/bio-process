@@ -104,263 +104,283 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time ;?>
                                         </li>
 
                                         <li class="has-dropdown"><a
-                                                href="<?php echo get_home_url() ;?>/product">Products</a>
-                                            <!-- <ul class="sub-menu">
-                                                <li><a href="product-listing.html">Small Bioreactors</a></li>
-                                                <li><a href="product-listing.html">Upstream</a></li>
-                                                <li><a href="product-listing.html">Filtration Media</a></li>
-                                                <li><a href="product-listing.html">Mixing</a></li>
-                                             </ul> -->
-                                            <ul class="sub-menu">
-                                                <li class="img-li">
-                                                    <div class="menu-img">
-                                                        <img src="<?php echo get_stylesheet_directory_uri() ;?>/assets/img/banner/megamenu-2.png"
-                                                            alt="appoinment-img">
-                                                    </div>
-                                                </li>
-                                                <li class="content-li">
-                                                    <ul class="cmn-nav-link service-scrol">
-                                                        <?php
-                                                         // Define the custom taxonomy name for product categories
-                                                         $taxonomy = 'products_categories'; // Replace with your actual taxonomy name
+                                            href="<?php echo get_home_url(); ?>/product">Products</a>
+                                        <!-- <ul class="sub-menu">
+                                          <li><a href="product-listing.html">Small Bioreactors</a></li>
+                                          <li><a href="product-listing.html">Upstream</a></li>
+                                          <li><a href="product-listing.html">Filtration Media</a></li>
+                                          <li><a href="product-listing.html">Mixing</a></li>
+                                       </ul> -->
+                                        <ul class="sub-menu">
+                                            <!-- <li class="img-li">
+                                                <div class="menu-img">
+                                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-2.png"
+                                                        alt="appoinment-img">
+                                                </div>
+                                            </li> -->
+                                            <li class="content-li">
+                                                <ul class="cmn-nav-link service-scrol">
+                                                    <?php
+                                       // Define the custom taxonomy name for product categories
+                                       $taxonomy = 'products_categories'; // Replace with your actual taxonomy name
 
-                                                         // Get all product categories
-                                                         $categories = get_terms(array(
-                                                            'taxonomy' => $taxonomy,
-                                                            'hide_empty' => false, // Set to true to hide empty categories
-                                                         ));
+                                       // Get all product categories
+                                       $categories = get_terms(array(
+                                          'taxonomy' => $taxonomy,
+                                          'hide_empty' => false, // Set to true to hide empty categories
+                                       ));
 
-                                                         // Loop through each category
-                                                         foreach ($categories as $category) {
-                                                            $category_url = get_term_link($category, $taxonomy);
-                                                            // Output the category name
-                                                            echo '<li><a class="menu-heading" href="' . esc_url($category_url) . '"><h6>' . esc_html($category->name) . '</h6></a>';
+                                       // Loop through each category
+                                       foreach ($categories as $category) {
+                                          $category_url = get_term_link($category, $taxonomy);
+                                          // Output the category name
+                                          echo '<li class="menu-item has-right-submenu" ><a class="menu-heading" href="' . esc_url($category_url) . '"><h6>' . esc_html($category->name) . '</h6></a> <img src="' . get_stylesheet_directory_uri() . '/assets/img/check_1.svg" class="img-fluid">';
 
-                                                            // Define query arguments to retrieve products within the current category
-                                                            $args = array(
-                                                               'post_type' => 'products', // Replace with your actual custom post type name
-                                                               'posts_per_page' => -1,
-                                                               'post_status' => 'publish',
-                                                               'tax_query' => array(
-                                                                  array(
-                                                                     'taxonomy' => $taxonomy,
-                                                                     'field' => 'id',
-                                                                     'terms' => $category->term_id, // Use the current category's ID
-                                                                  ),
-                                                               ),
-                                                            );
+                                          // Define query arguments to retrieve products within the current category
+                                          $args = array(
+                                             'post_type' => 'products', // Replace with your actual custom post type name
+                                             'posts_per_page' => -1,
+                                             'post_status' => 'publish',
+                                             'tax_query' => array(
+                                                array(
+                                                   'taxonomy' => $taxonomy,
+                                                   'field' => 'id',
+                                                   'terms' => $category->term_id, // Use the current category's ID
+                                                ),
+                                             ),
+                                          );
 
-                                                            // Create a new instance of WP_Query with the defined arguments
-                                                            $products_query = new WP_Query($args);
+                                          // Create a new instance of WP_Query with the defined arguments
+                                          $products_query = new WP_Query($args);
 
-                                                            // Check if there are any products in this category
-                                                            if ($products_query->have_posts()) {
-                                                               echo '<ul>';
-                                                               while ($products_query->have_posts()) {
-                                                                  $products_query->the_post();
-                                                                  // Display product information here, e.g., title, content, thumbnail, etc.
-                                                                  echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-                                                               }
-                                                               echo '</ul></li>';
-                                                               wp_reset_postdata(); // Reset post data
-                                                            } else {
-                                                               echo 'Coming Soon';
-                                                            }
-                                                         }
-                                                         ?>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                          // Check if there are any products in this category
+                                          if ($products_query->have_posts()) {
+                                             echo '<ul class="right-submenu">';
+                                             while ($products_query->have_posts()) {
+                                                $products_query->the_post();
+                                                // Display product information here, e.g., title, content, thumbnail, etc.
+                                                echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                                             }
+                                             echo '</ul></li>';
+                                             wp_reset_postdata(); // Reset post data
+                                          } else {
+                                             echo 'Coming Soon';
+                                          }
+                                       }
+                                       ?>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                         <li class="has-dropdown"><a
+                                            href="<?php echo get_home_url(); ?>/services">Services</a>
+                                        <ul class="sub-menu">
+                                            <!-- <li class="img-li">
+                                                <div class="menu-img">
+                                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-3.png"
+                                                        alt="appoinment-img">
+                                                </div>
+                                            </li> -->
+                                            <li class="content-li">
+                                                <ul class="cmn-nav-link">
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/submit-a-sketch/"
+                                                            class="menu-heading">
+                                                            <h6>Submit a sketch</h6>
+                                                            
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li><a  href="<?php echo get_home_url(); ?>/submit-a-sketch/"
+                                                                    class="_menu-link"> Submit a sketch</a></li>
+                                                        </ul>
+                                                    </li>
 
-                                        <li class="has-dropdown"><a
-                                                href="<?php echo get_home_url() ;?>/services">Services</a>
-                                            <ul class="sub-menu">
-                                                <li class="img-li">
-                                                    <div class="menu-img">
-                                                        <img src="<?php echo get_stylesheet_directory_uri() ;?>/assets/img/banner/megamenu-3.png"
-                                                            alt="appoinment-img">
-                                                    </div>
-                                                </li>
-                                                <li class="content-li">
-                                                    <ul class="cmn-nav-link">
-                                                        <li>
-                                                            <a href="<?php echo get_home_url(); ?>/submit-a-sketch/"
-                                                                class="menu-heading">
-                                                                <h6>Submit a sketch</h6>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url(); ?>/submit-a-sketch/"
-                                                                        class="_menu-link"> Submit a sketch</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/request-a-quote/"
+                                                            class="menu-heading">
+                                                            <h6>Request a quote</h6>
+                                                            
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li><a href="<?php echo get_home_url(); ?>/request-a-quote/"
+                                                                    class="_menu-link"> Request a quote</a></li>
+                                                        </ul>
+                                                    </li>
 
-                                                        <li>
-                                                            <a href="<?php echo get_home_url() ;?>/request-a-quote/"
-                                                                class="menu-heading">
-                                                                <h6>Request a quote</h6>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url() ;?>/request-a-quote/"
-                                                                        class="_menu-link"> Request a quote</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="<?php echo get_home_url() ;?>/submit-project/"
-                                                                class="menu-heading">
-                                                                <h6>Submit a Project</h6>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url() ;?>/submit-project/"
-                                                                        class="_menu-link"> Submit a Project</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="has-dropdown">
-                                            <a href="<?php echo get_home_url() ;?>/resources">Resources</a>
-                                            <ul class="sub-menu">
-                                                <li class="w-15">
-                                                    <a href="<?php echo get_home_url() ;?>/cert-look-up/"
-                                                        class="menu-heading">
-                                                        <h6>Cert Look Up</h6>
-                                                    </a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="<?php echo get_home_url() ;?>/cert-look-up/"
-                                                                class="_menu-link">
-                                                                Cert Look Up
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="hiden">
-                                                    <a href="<?php echo get_home_url() ;?>/knowledge-center"
-                                                        class="menu-heading">
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/submit-project/"
+                                                            class="menu-heading">
+                                                            <h6>Submit a Project</h6>
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li><a href="<?php echo get_home_url(); ?>/submit-project/"
+                                                                    class="_menu-link"> Submit a Project</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                       
+                                    <li class="has-dropdown">
+                                        <a href="<?php echo get_home_url(); ?>/resources">Resources</a>
+                                        <ul class="sub-menu">
+                                            <li class="content-li">
+                                                <ul class="cmn-nav-link">
+                                            <li class="menu-item has-right-submenu">
+                                                <a href="<?php echo get_home_url(); ?>/cert-look-up/"
+                                                    class="menu-heading">
+                                                    <h6>Cert Look Up</h6>
+                                                </a>
+                                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                <ul class="right-submenu">
+                                                    <li>
+                                                        <a href="<?php echo get_home_url(); ?>/cert-look-up/"
+                                                            class="_menu-link">
+                                                            Cert Look Up
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item has-right-submenu has-right-submenu-3">
+                                                <div class='has-right-submenu-3_'>
+                                                    <div>
+                                                    <a href="<?php echo get_home_url(); ?>/knowledge-center"
+                                                    class="menu-heading">
                                                         <h6>Knowledge Center</h6>
                                                     </a>
                                                     <small>What's New</small>
-                                                    <div class="_scrol">
-                                                        <ul>
-                                                            <?php 
-                                                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                                                            $posts_per_page = 3; // Number of posts to display per page
-                                                            $args = array(
-                                                               'post_type' => 'post',
-                                                               'category_name' => '',
-                                                               'posts_per_page' => $posts_per_page,
-                                                               'paged' => $paged 
-                                                            );
-
-                                                            $query = new WP_Query($args);
-                                                            if($query->have_posts()):
-                                                               while ($query->have_posts()):
-                                                                  $query->the_post();
-                                                                  $blogs_image = wp_get_attachment_url( get_post_thumbnail_id($post->id) );
-                                                                  ?>
-                                                            <li>
-                                                                <a href="<?php echo get_permalink( $id )?>"
-                                                                    class="_menu-blog-box">
-                                                                    <div class="_menu-blog-box-img">
-                                                                        <img src="<?php echo $blogs_image ;?>"
-                                                                            alt="appoinment-img">
-                                                                    </div>
-                                                                    <div class="_menu-blog-box-content">
-                                                                        <h6><?php the_title() ;?></h6>
-                                                                        <p><?php echo get_field('excerpt') ;?></p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                            <?php
-                                                               endwhile;
-                                                               wp_reset_postdata();
-                                                            endif;
-                                                         ?>
-                                                        </ul>
                                                     </div>
-                                                    <a href="<?php echo get_home_url() ;?>/knowledge-center"
-                                                        class="read-more-link">Read more our knowledge center <i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                </div>
+                                                <div class="">
+                                                    <ul class='right-submenu'>
+                                                        <?php
+                                          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                                          $posts_per_page = 3; // Number of posts to display per page
+                                          $args = array(
+                                             'post_type' => 'post',
+                                             'category_name' => '',
+                                             'posts_per_page' => $posts_per_page,
+                                          );
 
-                                        <li
-                                            class="has-dropdown <?php $url_slug = basename(get_permalink()); if($url_slug == 'about'){ echo "active"; } ?>">
-                                            <a href="<?php echo get_home_url() ;?>/about">Company</a>
-                                            <ul class="sub-menu">
-                                                <li class="img-li">
-                                                    <div class="menu-img">
-                                                        <img src="<?php echo get_stylesheet_directory_uri() ;?>/assets/img/banner/megamenu-1.png"
-                                                            alt="appoinment-img">
-                                                    </div>
-                                                </li>
-                                                <li class="content-li">
-                                                    <ul class="cmn-nav-link">
+                                          $query = new WP_Query($args);
+                                          if ($query->have_posts()) :
+                                             while ($query->have_posts()) :
+                                                $query->the_post();
+                                                $blogs_image = wp_get_attachment_url(get_post_thumbnail_id($post->id));
+                                          ?>
                                                         <li>
-                                                            <a href="<?php echo get_home_url() ;?>/about"
-                                                                class="menu-heading">
-                                                                <h6>about</h6>
+                                                            <a href="<?php echo get_permalink($id) ?>"
+                                                                class="_menu-blog-box">
+                                                                <!-- <div class="_menu-blog-box-img">
+                                                                    <img src="<?php echo $blogs_image; ?>"
+                                                                        alt="appoinment-img">
+                                                                </div> -->
+                                                                <div class="_menu-blog-box-content">
+                                                                    <h6><?php the_title(); ?></h6>
+                                                                    <p><?php echo get_field('excerpt'); ?></p>
+                                                                </div>
                                                             </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url(); ?>/about/#our_team"
-                                                                        class="_menu-link"> Meet the Team</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url(); ?>/about/#facility"
-                                                                        class="_menu-link"> Facility</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url(); ?>/about/#facility"
-                                                                        class="_menu-link">Quality Management</a>
-                                                                </li>
-                                                            </ul>
                                                         </li>
-
-                                                        <li>
-                                                            <a href="<?php echo get_home_url() ;?>/contact"
-                                                                class="menu-heading">
-                                                                <h6>Contact Us</h6>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url() ;?>/contact"
-                                                                        class="_menu-link">Contact Us</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-
-                                                        <li>
-                                                            <a href="<?php echo get_home_url() ;?>/careers"
-                                                                class="menu-heading">
-                                                                <h6>Openings</h6>
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url() ;?>/careers"
-                                                                        class="_menu-link"> Positions</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="<?php echo get_home_url(); ?>/careers/#submit-a-resume"
-                                                                        class="_menu-link">Submit a Resume</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
+                                                        <?php
+                                             endwhile;
+                                             wp_reset_postdata();
+                                          endif;
+                                          ?>
                                                     </ul>
-                                                </li>
-                                            </ul>
+                                                </div>
+                                                <a href="<?php echo get_home_url(); ?>/knowledge-center"
+                                                    class="read-more-link">Read more about our knowledge center <i
+                                                        class="bi bi-arrow-right"></i></a>
+                                            </li>
+                                        </ul>
                                         </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-dropdown <?php $url_slug = basename(get_permalink());
+                                                   if ($url_slug == 'about') {
+                                                      echo "active";
+                                                   } ?> "><a href="<?php echo get_home_url(); ?>/about">Company</a>
+                                        <ul class="sub-menu">
+                                            <!-- <li class="img-li">
+                                                <div class="menu-img">
+                                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/banner/megamenu-1.png"
+                                                        alt="appoinment-img">
+                                                </div>
+                                            </li> -->
+                                            <li class="content-li">
+                                                <ul class="cmn-nav-link">
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/about"
+                                                            class="menu-heading">
+                                                            <h6>about</h6>
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#facility"
+                                                                    class="_menu-link"> Facility</a>
+                                                            </li>
+                        
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#facility"
+                                                                    class="_menu-link">Quality Management</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#best_results"
+                                                                    class="_menu-link">Best Results</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#our_specialists"
+                                                                    class="_menu-link"> Our Specialists</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#our_team"
+                                                                    class="_menu-link"> Meet the Team</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/contact"
+                                                            class="menu-heading">
+                                                            <h6>Contact Us</h6>
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/contact"
+                                                                    class="_menu-link">Contact Us</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                    <li class="menu-item has-right-submenu">
+                                                        <a href="<?php echo get_home_url(); ?>/careers"
+                                                            class="menu-heading">
+                                                            <h6>Openings</h6>
+                                                        </a>
+                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
+                                                        <ul class="right-submenu">
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/careers"
+                                                                    class="_menu-link"> Positions</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/careers/#submit-a-resume"
+                                                                    class="_menu-link">Submit a Resume</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
                                     </ul>
 
@@ -374,8 +394,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time ;?>
 
                             <div class="header-cart-order d-flex align-items-center justify-content-end">
 
-                                <a class="header-bottom-btn" href="https://admin.bpssu.com/login"
-                                    target="_blank">Login</a>
+                                <a class="header-bottom-btn"  href='<?php echo get_home_url(); ?>/#search_sec'><i class="bi bi-search"></i></a>
 
                             </div>
 
@@ -411,9 +430,10 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time ;?>
                 <div class="col-8">
                     <div class="tp-mobile-bar d-flex align-items-center justify-content-end">
                         <div class="login_icon">
-                            <a href="https://admin.bpssu.com/login"
+                            <a href='<?php echo get_home_url(); ?>/#search_sec'><i class="bi bi-search"></i></a>
+                            <!-- <a href="https://admin.bpssu.com/login"
                                 target="_blank"><i
-                                class="bi bi-person"></i></a>
+                                class="bi bi-person"></i></a> -->
 
                         </div>
                         <div class="tp-bt-btn-banner d-none d-md-block d-xl-none mr-30">
@@ -767,3 +787,10 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time ;?>
     </div>
     <!-- sidebar-info-end -->
     <div class="body-overlay"></div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname);
+    }
+});
+</script>

@@ -212,6 +212,8 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                     <li class="has-dropdown">
                                         <a href="<?php echo get_home_url(); ?>/resources">Resources</a>
                                         <ul class="sub-menu">
+                                            <li class="content-li">
+                                                <ul class="cmn-nav-link">
                                             <li class="menu-item has-right-submenu">
                                                 <a href="<?php echo get_home_url(); ?>/cert-look-up/"
                                                     class="menu-heading">
@@ -280,6 +282,8 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                         class="bi bi-arrow-right"></i></a>
                                             </li>
                                         </ul>
+                                        </li>
+                                        </ul>
                                     </li>
 
                                     <li class="has-dropdown <?php $url_slug = basename(get_permalink());
@@ -303,16 +307,25 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time; ?>
                                                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/check_1.svg" class="img-fluid" alt="check icon">
                                                         <ul class="right-submenu">
                                                             <li>
-                                                                <a href="<?php echo get_home_url(); ?>/about/#our_team"
-                                                                    class="_menu-link"> Meet the Team</a>
-                                                            </li>
-                                                            <li>
                                                                 <a href="<?php echo get_home_url(); ?>/about/#facility"
                                                                     class="_menu-link"> Facility</a>
                                                             </li>
+                        
                                                             <li>
                                                                 <a href="<?php echo get_home_url(); ?>/about/#facility"
                                                                     class="_menu-link">Quality Management</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#best_results"
+                                                                    class="_menu-link">Best Results</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#our_specialists"
+                                                                    class="_menu-link"> Our Specialists</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="<?php echo get_home_url(); ?>/about/#our_team"
+                                                                    class="_menu-link"> Meet the Team</a>
                                                             </li>
                                                         </ul>
                                                     </li>
