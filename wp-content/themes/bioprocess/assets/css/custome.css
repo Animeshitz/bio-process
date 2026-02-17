@@ -1337,8 +1337,19 @@ ul>li .sub-menu li small {
     letter-spacing: 0.28px;
     text-transform: uppercase;
     padding: 5px 0;
+    position: relative;
+    margin-bottom: 5px;
+    display: flex;
 }
-
+ul>li .sub-menu li small::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 34px;
+    height: 2px;
+    background: #4183CC;
+}
 .read-more-link {
     padding: 5px 5px;
 }
@@ -1400,12 +1411,12 @@ ul>li .sub-menu li small {
 
 ._menu-blog-box-content h6 {
     color: var(--tp-text-1);
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 200 !important;
     line-height: 1.2;
     letter-spacing: 0.28px;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 ._menu-blog-box-content h6:hover {
     color: var(--tp-common-black)
