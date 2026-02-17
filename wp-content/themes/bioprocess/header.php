@@ -107,7 +107,7 @@ global $header_logo, $email_id, $phone_number, $office_days, $office_time ;?>
                                 }
                                 if ($type === 'products') {
                                     // Check for Product Archive, Single Product, or Product Category
-                                    if (is_post_type_archive('products') || is_singular('products') || is_tax('products_categories')) {
+                                    if (is_page('product') || is_singular('products') || is_tax('products_categories')) {
                                         return 'active';
                                     }
                                     return '';

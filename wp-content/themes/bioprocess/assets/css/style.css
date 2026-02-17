@@ -580,7 +580,7 @@ input[type=color] {
   content: "";
   height: 300px;
   width: 300px;
-  background-color: var(--tp-theme-secondary);
+  background-color: var(--tp-theme-blue);
   border-radius: 50%;
   position: absolute;
   top: 50%;

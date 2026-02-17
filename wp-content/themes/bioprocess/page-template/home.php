@@ -153,7 +153,7 @@ get_header('home');
                     </div>
                 </div>
             </div>
-            <div class="row mb-125">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="search-form" id='search_sec'>
                         <form action="<?php echo get_home_url() ;?>" method="GET">

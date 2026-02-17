@@ -16,6 +16,16 @@
 <?php 
 global $footer_logo, $email_id, $phone_number, $office_days, $office_time, $address, $facebook, $twitter, $youtube ;?>
 <!-- footer-area -->
+<div class='application_fits_sec brand-area'>
+    <div class='container'>
+       <div class='application_fits_wrap'>
+            <h3>Not sure where your application fits? Talk to our team</h3>
+            <a href="<?php echo get_home_url() ;?>/contact/">
+                <button class="tp-btn search-btn" >contact us </button>
+            </a>
+        </div>
+    </div>
+</div>
 <footer>
     <div class="footer-area theme-bg pt-100 pb-50">
         <div class="container">
